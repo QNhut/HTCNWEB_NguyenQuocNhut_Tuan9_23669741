@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form>
+            <input type="text" id ="txtus" placeholder="User name" required>
+            <br>
+            <input type="password" id="txtmk" placeholder="Password" required>
+            <br>
+            <input type="radio" name="gt" value="Nam" placeholder="Nam">Nam
+            <input type="radio" name="gt" value="Nu" placeholder="Nu">Nữ
+            <br>
+            <input type="checkbox" name="th" value="Trung Nguyen" placeholder="TN"> Trung Nguyên
+            <br>
+            <input type="checkbox" name="th" value="Mekong" placeholder="MK"> MeKong
+            <br>
+            <input type="checkbox" name="th" value="New Blue" placeholder="NB"> New Blue
+            <br>
+            <input type="checkbox" name="th" value="Trà sữa" placeholder="TS"> Trà sữa
+            <br>
+            <input type="button" value="Nhập" onclick="Nhap()">
+            <br>
+        </form>
+    </div>
+    <style>
+        *{
+            margin: 0px auto;
+            padding: 0px;
+        }
+        .wrapper{
+           width: 789px;
+            height: 500px;
+        }
+    </style>
+    <script>
+        function Nhap(){
+            var tendn, mk;
+            tendn = document.getElementById("txtus").value;
+            mk = document.getElementById("txtmk").value;
+            var cafe = new Array();
+            var taphop = document.querySelectorAll("input[type ='checkbox']");
+            taphop.forEach(function(chk){
+                if(chk.checked){
+                    cafe.push(chk.value);
+                }
+            });
+            // radio: lua 1 gt
+            var gt;
+            var taphopgt = document.querySelectorAll("input[type ='radio']");
+            taphopgt.forEach(function(rd){
+                if(rd.checked){
+                    gt = rd.value;
+                }
+            });
+            var w = window.open("info.html");
+            localStorage.setItem("us", tendn);
+            localStorage.setItem("pd", mk);
+            localStorage.setItem("cf", cafe);
+            localStorage.setItem("gt", gt);
+        }
+    </script>
+
+</body>
+</html>
